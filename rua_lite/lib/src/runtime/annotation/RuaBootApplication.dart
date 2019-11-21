@@ -1,0 +1,3 @@
+class RuaBootApplication {
+  const RuaBootApplication();
+}

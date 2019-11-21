@@ -1,0 +1,22 @@
+targets:
+  $default:
+    builders:
+      rua_lite|configurationCollector:
+        enabled: true
+      rua_lite|ruaBootApplicationGenerator:
+        enabled: true
+#        generate_for:
+#          - lib/main.dart
+builders:
+  rua_lite|configurationCollector:
+    import: 'package:rua_lite/src/builder/builder.dart'
+    builder_factories: ['configurationCollector']
+    build_extensions: { '.yaml': ['.rua_config.rua_extra_initializer.dart,'] }
+    auto_apply: root_package
+    build_to: cache
+  rua_lite|ruaBootApplicationGenerator:
+    import: 'package:rua_lite/src/builder/builder.dart'
+    builder_factories: ['ruaBootApplicationGenerator']
+    build_extensions: { '.dart': ['.rua_lite.part'] }
+    auto_apply: root_package
+    build_to: source
